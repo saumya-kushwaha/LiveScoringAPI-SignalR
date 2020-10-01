@@ -22,13 +22,13 @@ This is the API app that will take a "post" of scores and process them out to al
 
     map.UseCors(Cors.Options.AllowAll)
 
-*Controllers/API/PlayerScoreController.cs* - Endpoint to post scores to. Currently there is no authentication. That needs to be added still. There are 2 endpoints /GET and /POST
+*Controllers/API/PlayerScoreController.cs* - Endpoint to post scores to. Currently, there is no authentication. That needs to be added still. There are 2 endpoints /GET and /POST
 /GET is a test method to generate random scores in the Player model. This can be removed.
 /POST is the main method. It is expecting a Player object and instantiates the PlayerScoreTickerHub to "update scores"
 
-*PlayerScoreTickerHub.cs* - this is the SignalR hub clients will connect to. It also has a few exposed methods. The main one, for Website client script is GetAllScores. This happens at init(). I did not add that to the Mobile demos yet.
+*PlayerScoreTickerHub.cs* - this is the SignalR hub clients will connect to. It also has a few exposed methods. The main one, for Website client script, is GetAllScores. This happens at init(). I did not add that to the Mobile demos yet.
 
-*PlayerScoreTicker.cs* - main file for updating scores. Currently the player object is a concurrent dictionary that just keeps getting updated with a score. This most likely will need to change at some point either time based or upon another call to clear out scores. There are also some test methods in there as well. **BroadcastPlayerScores** calls a method for all connected clients.
+*PlayerScoreTicker.cs* - main file for updating scores. Currently, the player object is a concurrent dictionary that just keeps getting updated with a score. This most likely will need to change at some point either time based or upon another call to clear out scores. There are some test methods in there as well. **BroadcastPlayerScores** calls a method for all connected clients.
 
 *Models/PlayerScore.cs* - sample player score model
 
@@ -47,15 +47,15 @@ This project serves 2 purposes
 
 **LiveScoringMobile**
 
-This is a Xamarin project. Contains shared code and 3 others (iOS, Droid and WinPhone). iOS is not complete.
+This is a Xamarin project. Contains shared code, and 3 others (iOS, Droid and WinPhone). iOS is not complete.
 
 *LiveScoringMobile* has some shared code - a Player Model and a Signal R Client. You may have to update the domain name and player hub accordingly.
 
 LiveScoringMobile.WinPhone - has an example of displaying scores. App.xaml.cs has the R Client connecting OnLaunched. MainPage.xaml.cs has a method when data is received from the hub it will use a dispatcher to update the UI
 
-LiveScoringMobile.Droid - has an example of displaying scores. Similar to WinPhone, MainActivity kicks off the R Client and has a listener for data that is recieved. It will process the data with RunOnUiThread for real time updating.
+LiveScoringMobile.Droid - has an example of displaying scores. Similar to WinPhone, MainActivity kicks off the R Client and has a listener for data that is received. It will process the data with RunOnUiThread for real-time updating.
 
-LiveScoringMobile.iOS - not implemented but will follow same pattern
+LiveScoringMobile.iOS - not implemented but will follow the same pattern
 
 ## History ##
 
@@ -91,7 +91,7 @@ all copies or substantial portions of the Software.
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
